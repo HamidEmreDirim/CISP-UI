@@ -1,0 +1,4 @@
+.video {
+    transform: scaleX(-1);
+    border-radius: 20px;
+}
