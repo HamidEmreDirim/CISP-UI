@@ -1,6 +1,7 @@
 import React from 'react';
 import temp_image from '../assets/img/profile-cover.jpg'
 
+
 function VideoStream() {
   return (
     <div style={styles.container}> {/* Flex container for side-by-side streams */}

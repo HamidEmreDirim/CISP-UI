@@ -156,12 +156,12 @@ export default () => {
                 <div>
                     <Joystickv2 />
                     <div className='slider mb-5'>
-                        <label className="mt-1">Plow Arm Speed</label>
+                        <label className="mt-1">Servo Angle</label>
                         <Slider
                             min={0}
-                            max={10}
+                            max={255}
                             value={plowSpeed}
-                            labels={{ '0': 'Slow', 10: 'Fast' }}
+                            labels={{ '0': '0', 255: '255' }}
                             onChange={(e) => plowSpeedHandler(e)}
                         />
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '50px' }}>

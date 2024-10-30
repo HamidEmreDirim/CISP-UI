@@ -7,7 +7,7 @@ import { TerminalOutput, TerminalInput } from 'react-terminal-ui'; // TerminalOu
 function Terminal4SSH() {
 
     const [lineData, setLineData] = useState([
-        <TerminalOutput key={0}>Welcome to the Life SSH Terminal!&#128075;</TerminalOutput>,
+        <TerminalOutput key={0}>Welcome to the UGV-NVIDIA SSH Terminal!&#128075;</TerminalOutput>,
         <TerminalOutput key={1}></TerminalOutput>,
     ]);
 
@@ -26,7 +26,7 @@ function Terminal4SSH() {
 
     return (
         <div style={{ fontFamily: 'monospace', height: '100vh', padding: '20px' }}>
-            <Terminal color="green" prompt="Life@csa:~$" onInput={onInput}> {lineData} </Terminal>
+            <Terminal color="green" prompt="CISP@ugv-nvidia:~$" onInput={onInput}> {lineData} </Terminal>
         </div>
     );
 }
