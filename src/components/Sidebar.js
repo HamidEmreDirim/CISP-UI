@@ -58,7 +58,7 @@ export default () => {
         <SimpleBar className={`collapse ${showClass} sidebar d-md-block bg-primary text-white`}>
           <div className="sidebar-inner px-4 pt-3">
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="CISP LAB" link={Routes.DashboardOverview} image={UGVLogo} />
+              <NavItem title="" link={Routes.DashboardOverview} image={UGVLogo} />
 
               <Dropdown.Divider className="my-3 border-indigo" />
 

@@ -6,21 +6,21 @@ function VideoStream() {
   const thermalImageRef = useRef(null);
 
   useEffect(() => {
-    // 'camera_frame' event'ini dinleyerek gelen RGB görüntüyü güncelle
-    socket.on("camera_frame", (data) => {
+    // RGB stream (base64 string bekliyoruz)
+    socket.on("camera_frame", (base64Image) => {
       if (rgbImageRef.current) {
-        rgbImageRef.current.src = data;  // RGB görüntüsünü güncelle
+        // base64Image örn: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ..."
+        rgbImageRef.current.src = base64Image;
       }
     });
 
-    // 'thermal_camera_frame' event'ini dinleyerek gelen Termal görüntüyü güncelle
-    socket.on("thermal_camera_frame", (data) => {
+    // Termal stream (base64 string bekliyoruz)
+    socket.on("thermal_camera_frame", (base64Image) => {
       if (thermalImageRef.current) {
-        thermalImageRef.current.src = data;  // Termal görüntüyü güncelle
+        thermalImageRef.current.src = base64Image;
       }
     });
 
-    // Cleanup: bileşen kapatıldığında event dinleyicilerini kaldır
     return () => {
       socket.off("camera_frame");
       socket.off("thermal_camera_frame");
@@ -57,12 +57,14 @@ const styles = {
     margin: '0 5px',
     height: '100%',
     overflow: 'hidden',
-    textAlign: 'center'  // Başlıkların ortalanması için
+    textAlign: 'center'
   },
   image: {
-    width: '640px',
-    height: '480px',
-    objectFit: 'cover'
+    width: '800px',              // Görüntü genişliğini büyülttük
+    height: '600px',             // Görüntü yüksekliğini büyülttük
+    objectFit: 'cover',
+    border: '2px solid #ccc',    // Çok göze batmayan gri bir border ekledik
+    borderRadius: '4px'          // Hafif köşe yuvarlaması (isteğe bağlı)
   },
   label: {
     fontSize: '1.5em',
